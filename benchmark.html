@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!-- saved from url=(0260)file:///Users/anealmistry%201%202%203/Library/Application%20Support/Claude/local-agent-mode-sessions/3b4652fc-862e-4260-8615-edd9a6b75f2b/ac6d3f68-154f-449f-9d44-3ccd08bebe37/local_f8f39b0f-43b1-4332-a2be-bb133eb8ea8b/outputs/natwest-acquisition-benchmark.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NatWest Acquisition Benchmark — Credit Cards &amp; Loans</title>
+<style>
+  :root{
+    --bg:#0f1117; --panel:#181b24; --panel2:#1f2330; --line:#2a2f3e;
+    --text:#e8eaf0; --muted:#9aa1b5; --accent:#7c5cff; --accent2:#42d6a4;
+    --amber:#f0b429; --red:#ef6b6b;
+    --good:#42d6a4; --mid:#f0b429; --bad:#ef6b6b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.55; padding:32px 20px 80px;}
+  .wrap{max-width:1240px; margin:0 auto;}
+  h1{font-size:26px; font-weight:700; letter-spacing:-.3px;}
+  h2{font-size:18px; font-weight:650; margin-bottom:14px;}
+  .sub{color:var(--muted); font-size:13.5px; margin-top:6px; max-width:880px;}
+  .badge{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:2px 8px; border-radius:20px; vertical-align:middle;}
+  .badge.measured{background:rgba(66,214,164,.14); color:var(--accent2);}
+  .badge.directional{background:rgba(240,180,41,.14); color:var(--amber);}
+  .badge.pending{background:rgba(239,107,107,.14); color:var(--red);}
+  .topbar{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:26px;}
+  .meta-chips{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:6px 12px; font-size:12px; color:var(--muted);}
+  .chip b{color:var(--text); font-weight:600;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin-bottom:28px;}
+  .kpi{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
+  .kpi .label{font-size:11.5px; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); font-weight:600;}
+  .kpi .val{font-size:26px; font-weight:750; margin-top:4px;}
+  .kpi .note{font-size:12px; color:var(--muted); margin-top:4px;}
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; margin-bottom:28px;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); text-align:left; padding:10px 10px; border-bottom:1px solid var(--line); cursor:pointer; user-select:none; white-space:nowrap;}
+  th:hover{color:var(--text);}
+  th .arrow{opacity:.6; font-size:9px;}
+  td{padding:12px 10px; border-bottom:1px solid var(--line); vertical-align:middle;}
+  tr.bank-row{cursor:pointer; transition:background .12s;}
+  tr.bank-row:hover{background:var(--panel2);}
+  tr.natwest{background:rgba(124,92,255,.08); border-left:3px solid var(--accent);}
+  tr.pendingrow{opacity:.75;}
+  .rank{font-weight:750; font-size:15px; width:36px; text-align:center;}
+  .bname{font-weight:650; white-space:nowrap;}
+  .bname small{display:block; font-weight:400; color:var(--muted); font-size:11px;}
+  .scorecell{min-width:92px;}
+  .bar{height:6px; border-radius:4px; background:var(--line); overflow:hidden; margin-top:4px;}
+  .bar i{display:block; height:100%; border-radius:4px;}
+  .num{font-weight:650; font-size:13px;}
+  .overall .num{font-size:16px; font-weight:750;}
+  .gap{font-size:12px; color:var(--muted); white-space:nowrap;}
+  .gap.leader{color:var(--accent2); font-weight:650;}
+  .na{color:var(--muted); font-size:12px;}
+  .detail{display:none;}
+  .detail.open{display:table-row;}
+  .detail td{background:var(--panel2); padding:18px 22px;}
+  .detail-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .detail h4{font-size:12px; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px;}
+  .detail h4.s{color:var(--accent2);} .detail h4.w{color:var(--red);}
+  .detail ul{list-style:none;}
+  .detail li{font-size:13px; color:var(--text); padding:3px 0 3px 16px; position:relative;}
+  .detail li::before{content:""; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%;}
+  .detail .str li::before{background:var(--accent2);}
+  .detail .wk li::before{background:var(--red);}
+  .excluded{margin-top:14px; font-size:12.5px; color:var(--muted); border-top:1px dashed var(--line); padding-top:12px;}
+  .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:14px;}
+  .pillar{background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
+  .pillar h3{font-size:14px; font-weight:650; margin-bottom:2px;}
+  .pillar .lead{font-size:12px; color:var(--muted); margin-bottom:10px;}
+  .pillar .lead b{color:var(--accent2);}
+  .pillar p{font-size:13px; color:var(--muted); margin-bottom:8px;}
+  .actions{font-size:13px;}
+  .actions div{padding:6px 0; border-top:1px dashed var(--line);}
+  .actions .own{color:var(--accent); font-weight:600; font-size:11.5px; text-transform:uppercase; letter-spacing:.4px;}
+  .legend{display:flex; gap:18px; flex-wrap:wrap; font-size:12px; color:var(--muted); margin:10px 0 0;}
+  .legend span::before{content:"●"; margin-right:5px;}
+  .lg-g::before{color:var(--good);} .lg-m::before{color:var(--mid);} .lg-b::before{color:var(--bad);}
+  .small{font-size:12.5px; color:var(--muted);}
+  .meth td{font-size:12.5px; color:var(--muted);}
+  .meth td:first-child{color:var(--text); font-weight:600; white-space:nowrap;}
+  .footnote{font-size:12px; color:var(--muted); margin-top:18px; max-width:1000px;}
+  @media(max-width:860px){.detail-grid{grid-template-columns:1fr;} .tbl-scroll{overflow-x:auto;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div>
+      <h1>Credit Card &amp; Loan Acquisition Benchmark</h1>
+      <div class="sub">NatWest vs UK big banks and digital challengers across SEO, organic share of voice, AI readiness, LLM visibility, site health and acquisition experience — scored separately for <b>credit cards</b> and <b>personal loans</b>. Built from live analysis of each brand's acquisition pages, robots.txt / llms.txt policies, and sampled search results.</div>
+    </div>
+    <div class="meta-chips">
+      <div class="chip">Snapshot: <b>10 June 2026</b></div>
+      <div class="chip">Pages analysed: <b>24</b></div>
+      <div class="chip">Brands ranked: <b>8</b> per table (+Revolut pending)</div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="kpi"><div class="label">Credit cards — NatWest rank</div><div class="val" style="color:var(--accent2)">#1 of 8</div><div class="note">78/100 · 5 pts clear of Santander</div></div>
+    <div class="kpi"><div class="label">Loans — NatWest rank</div><div class="val" style="color:var(--amber)">#2 of 8</div><div class="note">76/100 · 1 pt behind Santander (77)</div></div>
+    <div class="kpi"><div class="label">Standout strength</div><div class="val" style="color:var(--accent2)">llms.txt</div><div class="note">Only brand with a published LLM index; cited in AI answers</div></div>
+    <div class="kpi"><div class="label">Threat on the horizon</div><div class="val" style="color:var(--red)">Revolut</div><div class="note">Full UK licence Mar 2026; 5 credit cards + loans announced</div></div>
+  </div>
+
+  <!-- CREDIT CARDS TABLE -->
+  <div class="panel">
+    <h2>League table — Credit cards <span class="small">· click a column to re-rank, click a row for evidence</span></h2>
+    <div class="legend">
+      <span class="lg-g">70–100 strong</span><span class="lg-m">50–69 mixed</span><span class="lg-b">&lt;50 weak</span>
+      &nbsp;|&nbsp; <span class="badge measured">measured</span> = observed in page/robots data &nbsp; <span class="badge directional">directional</span> = sampled signal
+    </div>
+    <div class="tbl-scroll"><table id="cc-table"><thead><tr>
+      <th>#</th><th data-k="name">Brand</th>
+      <th data-k="overall">Overall <span class="arrow">▼</span></th>
+      <th data-k="seo">SEO <span class="badge measured">m</span></th>
+      <th data-k="sov">Organic SoV <span class="badge directional">d</span></th>
+      <th data-k="ai">AI readiness <span class="badge measured">m</span></th>
+      <th data-k="llm">LLM visibility <span class="badge directional">d</span></th>
+      <th data-k="health">Site health <span class="badge measured">m</span></th>
+      <th data-k="xp">Experience <span class="badge measured">m</span></th>
+      <th>Gap to #1</th></tr></thead><tbody><tr class="bank-row natwest"><td class="rank">1</td>
+        <td class="bname">NatWest<small>natwest.com/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">82</span><div class="bar"><i style="width:82%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">50</span><div class="bar"><i style="width:50%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">88</span><div class="bar"><i style="width:88%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">80</span><div class="bar"><i style="width:80%;background:var(--good)"></i></div></td>
+        <td class="gap leader">Leader</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Only brand with llms.txt — curated LLM index listing every card page, referenced from robots.txt</li><li>Longer Balance Transfer card cited inside AI-generated answer summaries in SERP sampling</li><li>Rep-examples and APRs for all 8 cards fully server-rendered — extractable by AI crawlers</li><li>Per-card eligibility checkers and a repayment calculator</li><li>Clean robots.txt with 3 sitemaps</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Relative canonical URLs (should be absolute)</li><li>FAQs linked off-page rather than inline on the hub — weaker for snippets and AI answers</li><li>No direct organic rankings observed for 'best/compare card' queries</li><li>No explicit AI-crawler allow rules (relies on default)</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">2</td>
+        <td class="bname">Santander<small>santander.co.uk/personal/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">73</span><div class="bar"><i style="width:73%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">72</span><div class="bar"><i style="width:72%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">45</span><div class="bar"><i style="width:45%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td>
+        <td class="gap ">−5</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Explicit AI-crawler allows in robots.txt: GPTBot, ClaudeBot, PerplexityBot, CCBot, Google-Extended</li><li>Inline balance-transfer savings calculator and per-card eligibility checkers</li><li>All 5 card rep-examples server-rendered; card filter by need (day-to-day / BT / travel)</li><li>Most actively managed robots.txt in the set</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No OpenGraph/Twitter cards; legacy meta-keywords tag</li><li>No llms.txt</li><li>No card-specific organic rankings observed in sample</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">3</td>
+        <td class="bname">HSBC<small>hsbc.co.uk/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">71</span><div class="bar"><i style="width:71%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">40</span><div class="bar"><i style="width:40%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">60</span><div class="bar"><i style="width:60%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">80</span><div class="bar"><i style="width:80%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">86</span><div class="bar"><i style="width:86%;background:var(--good)"></i></div></td>
+        <td class="gap ">−7</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Richest card hub experience: 8 inline FAQ accordions plus 'Explore more' guide modules</li><li>Eligibility checker shows estimated credit limit with no credit-score impact</li><li>Full OG + Twitter cards, clean canonicals</li><li>Rep-examples for 4 popular cards server-rendered</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No llms.txt, no explicit AI-crawler policy</li><li>Blanket robots Disallow on all PDFs hides key-facts documents</li><li>No direct organic rankings observed in sample</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">4</td>
+        <td class="bname">Lloyds<small>lloydsbank.com/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">88</span><div class="bar"><i style="width:88%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">40</span><div class="bar"><i style="width:40%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">65</span><div class="bar"><i style="width:65%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">58</span><div class="bar"><i style="width:58%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">82</span><div class="bar"><i style="width:82%;background:var(--good)"></i></div></td>
+        <td class="gap ">−8</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Best metadata in the set: full OG + Twitter cards, meta-robots, absolute canonicals, Yext FAQ entities</li><li>Open eligibility checker and credit-card interest calculator</li><li>Broad range incl. Ultra and World Elite cards with guides hub</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No llms.txt, silent AI-crawler policy</li><li>Minimal robots.txt with little crawl management</li><li>Card rep-examples on deeper pages, not the hub</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">5</td>
+        <td class="bname">TSB<small>tsb.co.uk/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">69</span><div class="bar"><i style="width:69%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">80</span><div class="bar"><i style="width:80%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">35</span><div class="bar"><i style="width:35%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">68</span><div class="bar"><i style="width:68%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">82</span><div class="bar"><i style="width:82%;background:var(--good)"></i></div></td>
+        <td class="gap ">−9</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>All 3 card rep-examples plus market-leading 38-month BT offer server-rendered</li><li>Very deep inline FAQ section (15+ questions incl. worked interest examples)</li><li>Open eligibility checker; clean open robots.txt</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No llms.txt, no AI-crawler policy</li><li>Weakest brand visibility in SERP sampling</li><li>Only 3 cards — narrowest mainstream range</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">6</td>
+        <td class="bname">Monzo<small>monzo.com/flex</small></td>
+        <td class="scorecell overall"><span class="num">67</span><div class="bar"><i style="width:67%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">86</span><div class="bar"><i style="width:86%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">30</span><div class="bar"><i style="width:30%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">60</span><div class="bar"><i style="width:60%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">82</span><div class="bar"><i style="width:82%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">72</span><div class="bar"><i style="width:72%;background:var(--good)"></i></div></td>
+        <td class="gap ">−11</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Excellent metadata and social cards; SSR Next.js with APRs visible</li><li>Transparent Flex Purchase vs Flex Build comparison table with rates</li><li>Trust signals on-page: 4.9 App Store, awards, FSCS</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Must open a Monzo current account before applying — gated acquisition</li><li>Only 2 credit products, max £10k limit</li><li>No llms.txt; no organic presence for category terms in sample</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">7</td>
+        <td class="bname">Barclays / Barclaycard<small>barclays.co.uk/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">59</span><div class="bar"><i style="width:59%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">55</span><div class="bar"><i style="width:55%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">55</span><div class="bar"><i style="width:55%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">50</span><div class="bar"><i style="width:50%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">55</span><div class="bar"><i style="width:55%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">50</span><div class="bar"><i style="width:50%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">75</span><div class="bar"><i style="width:75%;background:var(--good)"></i></div></td>
+        <td class="gap ">−19</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Widest range in the set: 9 cards incl. Amazon and Avios partnerships, rep-examples server-rendered</li><li>Barclaycard cited in AI-generated answers for balance-transfer queries</li><li>Eligibility checker with no credit-score impact; jargon-buster content</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>robots.txt returns empty — no sitemap declared, no crawl directives</li><li>No title/meta extractable from raw page fetch — serious SEO/AI extractability problem</li><li>Split estate (barclays.co.uk vs barclaycard.co.uk) dilutes authority</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">8</td>
+        <td class="bname">Nationwide<small>nationwide.co.uk/credit-cards</small></td>
+        <td class="scorecell overall"><span class="num">57</span><div class="bar"><i style="width:57%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">25</span><div class="bar"><i style="width:25%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">45</span><div class="bar"><i style="width:45%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">72</span><div class="bar"><i style="width:72%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td>
+        <td class="gap ">−21</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Card rates and intro offers server-rendered (24.9% APR rep)</li><li>Clear plain-English education content on fees and responsible use</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Members only — must hold a Nationwide account to apply</li><li>Only 2 cards — narrowest range in the set</li><li>No OG/Twitter cards; page fetch timed out once during testing</li><li>No llms.txt; weakest SERP presence observed</li></ul></div>
+      </div></td></tr><tr class="bank-row pendingrow"><td class="rank">—</td>
+      <td class="bname">Revolut <span class="badge pending">Launching 2026</span><small>revolut.com — UK launch pending</small></td>
+      <td class="na" colspan="7">Not yet scoreable — Full UK banking licence granted 11 Mar 2026. Five credit cards and unsecured personal loans publicly announced as a key 2026 focus (13M UK customers waiting). No UK acquisition pages live yet — fetches return empty client-rendered shells. Re-benchmark at launch.</td><td class="na">n/a</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+      <div><h4 class="s">Why it matters</h4><ul class="str"><li>13M UK customers and a top-rated app give it instant distribution once products launch</li><li>Record £1.7bn profit funding an aggressive lending push</li></ul></div>
+      <div><h4 class="w">Current state</h4><ul class="wk"><li>No UK credit-card or loan acquisition pages live at snapshot date</li><li>Site is heavily client-rendered — current pages expose no extractable metadata, which would score poorly on AI readiness if unchanged</li></ul></div>
+    </div></td></tr></tbody></table></div>
+  </div>
+
+  <!-- LOANS TABLE -->
+  <div class="panel">
+    <h2>League table — Personal loans <span class="small">· click a column to re-rank, click a row for evidence</span></h2>
+    <div class="tbl-scroll"><table id="loan-table"><thead><tr>
+      <th>#</th><th data-k="name">Brand</th>
+      <th data-k="overall">Overall <span class="arrow">▼</span></th>
+      <th data-k="seo">SEO <span class="badge measured">m</span></th>
+      <th data-k="sov">Organic SoV <span class="badge directional">d</span></th>
+      <th data-k="ai">AI readiness <span class="badge measured">m</span></th>
+      <th data-k="llm">LLM visibility <span class="badge directional">d</span></th>
+      <th data-k="health">Site health <span class="badge measured">m</span></th>
+      <th data-k="xp">Experience <span class="badge measured">m</span></th>
+      <th>Gap to #1</th></tr></thead><tbody><tr class="bank-row"><td class="rank">1</td>
+        <td class="bname">Santander<small>santander.co.uk/personal/loans</small></td>
+        <td class="scorecell overall"><span class="num">77</span><div class="bar"><i style="width:77%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">72</span><div class="bar"><i style="width:72%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">65</span><div class="bar"><i style="width:65%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td>
+        <td class="gap leader">Leader</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Only bank page ranking directly in sampled 'best personal loan rates UK' results</li><li>Full rate table by amount band (6.1% from £7.5k) server-rendered</li><li>Eligibility checker + decision within 5 minutes; step-by-step application timeline</li><li>Explicit AI-crawler allows in robots.txt</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No OG/Twitter cards; some calculator values are JS placeholders</li><li>No llms.txt</li><li>Loans capped at £25k (vs £50k at NatWest/Lloyds/Nationwide)</li></ul></div>
+      </div></td></tr><tr class="bank-row natwest"><td class="rank">2</td>
+        <td class="bname">NatWest<small>natwest.com/loans</small></td>
+        <td class="scorecell overall"><span class="num">76</span><div class="bar"><i style="width:76%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">80</span><div class="bar"><i style="width:80%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">45</span><div class="bar"><i style="width:45%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">88</span><div class="bar"><i style="width:88%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">80</span><div class="bar"><i style="width:80%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td>
+        <td class="gap ">−1</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>llms.txt covers the full loans estate: calculator, QuickQuote, rates, guides</li><li>QuickQuote soft-search loan quote open to non-customers</li><li>Rates and rep-examples server-rendered; loan calculator and how-to-apply guides</li><li>Clean robots.txt with sitemaps</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No direct organic rankings observed — aggregator-dependent for loan demand</li><li>No inline rate-by-amount table on the hub (Santander pattern)</li><li>FAQs linked off-page rather than answered inline</li><li>Relative canonicals</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">3</td>
+        <td class="bname">HSBC<small>hsbc.co.uk/loans</small></td>
+        <td class="scorecell overall"><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">85</span><div class="bar"><i style="width:85%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">40</span><div class="bar"><i style="width:40%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">58</span><div class="bar"><i style="width:58%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">80</span><div class="bar"><i style="width:80%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">83</span><div class="bar"><i style="width:83%;background:var(--good)"></i></div></td>
+        <td class="gap ">−7</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Competitive headline rate server-rendered (6.2% rep £7.5k–£20k)</li><li>8 inline FAQs plus guide modules on the hub</li><li>Loan calculator with personalised rates, no credit-score impact</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>No llms.txt, no AI-crawler policy</li><li>PDF disallow hides key-facts docs</li><li>Loans capped at £30k (£50k Premier only)</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">4</td>
+        <td class="bname">TSB<small>tsb.co.uk/personal-loans</small></td>
+        <td class="scorecell overall"><span class="num">69</span><div class="bar"><i style="width:69%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">35</span><div class="bar"><i style="width:35%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">68</span><div class="bar"><i style="width:68%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">84</span><div class="bar"><i style="width:84%;background:var(--good)"></i></div></td>
+        <td class="gap ">−8</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Open to new customers: 2-minute quote, same-day money, 5.9% rep rate server-rendered</li><li>Loans from £300 (current-account customers) to £50k — widest amount range</li><li>Deep inline FAQs incl. eligibility, early repayment, fraud warnings</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Loans canonical alias (/loans.html → /personal-loans.html)</li><li>No llms.txt, no AI-crawler policy</li><li>Weakest SERP visibility in sample</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">5</td>
+        <td class="bname">Lloyds<small>lloydsbank.com/loans</small></td>
+        <td class="scorecell overall"><span class="num">68</span><div class="bar"><i style="width:68%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">88</span><div class="bar"><i style="width:88%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">40</span><div class="bar"><i style="width:40%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">65</span><div class="bar"><i style="width:65%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">58</span><div class="bar"><i style="width:58%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">78</span><div class="bar"><i style="width:78%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">74</span><div class="bar"><i style="width:74%;background:var(--good)"></i></div></td>
+        <td class="gap ">−9</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Best metadata in the set; rich server-rendered content: rep example, FAQs, eligibility criteria</li><li>Loan calculator plus personalised quote with no credit-score impact</li><li>Borrow up to £50k over up to 7 years</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Quote gated behind login and requires a Lloyds current account held ≥1 month — real friction for new-to-bank acquisition</li><li>No llms.txt, silent AI policy</li><li>Minimal robots.txt</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">6</td>
+        <td class="bname">Monzo<small>monzo.com/loans</small></td>
+        <td class="scorecell overall"><span class="num">68</span><div class="bar"><i style="width:68%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">86</span><div class="bar"><i style="width:86%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">30</span><div class="bar"><i style="width:30%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">58</span><div class="bar"><i style="width:58%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">82</span><div class="bar"><i style="width:82%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">74</span><div class="bar"><i style="width:74%;background:var(--good)"></i></div></td>
+        <td class="gap ">−9</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Strong metadata; rep example server-rendered and dated (21.8% APR ≤£10k, 10.2% £10k–£35k)</li><li>Money in minutes if approved; no fees for early/extra payments</li><li>Personal loan calculator and named-loan UX</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Monzo current account required to apply — gated acquisition</li><li>Higher rep APR than banks for smaller loans; capped at £35k</li><li>No llms.txt; no organic presence in sample</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">7</td>
+        <td class="bname">Nationwide<small>nationwide.co.uk/loans</small></td>
+        <td class="scorecell overall"><span class="num">55</span><div class="bar"><i style="width:55%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">70</span><div class="bar"><i style="width:70%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">25</span><div class="bar"><i style="width:25%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">48</span><div class="bar"><i style="width:48%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">40</span><div class="bar"><i style="width:40%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">72</span><div class="bar"><i style="width:72%;background:var(--good)"></i></div></td><td class="scorecell "><span class="num">66</span><div class="bar"><i style="width:66%;background:var(--mid)"></i></div></td>
+        <td class="gap ">−22</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Acceptance indicator before any credit check</li><li>Good inline FAQs; loans up to £50k and terms to 10 years</li><li>No fees; unlimited overpayments</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Loan rates and calculator render as 'Loading…' without JavaScript — invisible to AI crawlers and weak for SEO</li><li>Members only — needs a Nationwide account to apply</li><li>No OG/Twitter cards; one fetch timeout during testing</li></ul></div>
+      </div></td></tr><tr class="bank-row"><td class="rank">8</td>
+        <td class="bname">Barclays<small>barclays.co.uk/loans</small></td>
+        <td class="scorecell overall"><span class="num">51</span><div class="bar"><i style="width:51%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">55</span><div class="bar"><i style="width:55%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">45</span><div class="bar"><i style="width:45%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">38</span><div class="bar"><i style="width:38%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">45</span><div class="bar"><i style="width:45%;background:var(--bad)"></i></div></td><td class="scorecell "><span class="num">50</span><div class="bar"><i style="width:50%;background:var(--mid)"></i></div></td><td class="scorecell "><span class="num">62</span><div class="bar"><i style="width:62%;background:var(--mid)"></i></div></td>
+        <td class="gap ">−26</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str"><li>Personal price quote with no credit footprint; most applications under 10 minutes</li><li>Greener Home cashback proposition (6.5% rep rate in body copy)</li><li>Money Mentors guidance content</li></ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk"><li>Headline rate renders as '0 APR Representative on loans of £0' without JavaScript — key rates invisible to crawlers and AI</li><li>robots.txt returns empty — no sitemap, no crawl directives</li><li>No title/meta extractable from raw fetch</li></ul></div>
+      </div></td></tr><tr class="bank-row pendingrow"><td class="rank">—</td>
+      <td class="bname">Revolut <span class="badge pending">Launching 2026</span><small>revolut.com — UK launch pending</small></td>
+      <td class="na" colspan="7">Not yet scoreable — Full UK banking licence granted 11 Mar 2026. Five credit cards and unsecured personal loans publicly announced as a key 2026 focus (13M UK customers waiting). No UK acquisition pages live yet — fetches return empty client-rendered shells. Re-benchmark at launch.</td><td class="na">n/a</td></tr><tr class="detail"><td colspan="10"><div class="detail-grid">
+      <div><h4 class="s">Why it matters</h4><ul class="str"><li>13M UK customers and a top-rated app give it instant distribution once products launch</li><li>Record £1.7bn profit funding an aggressive lending push</li></ul></div>
+      <div><h4 class="w">Current state</h4><ul class="wk"><li>No UK credit-card or loan acquisition pages live at snapshot date</li><li>Site is heavily client-rendered — current pages expose no extractable metadata, which would score poorly on AI readiness if unchanged</li></ul></div>
+    </div></td></tr></tbody></table></div>
+    <div class="excluded"><b>Not ranked:</b> <b>Starling</b> — withdrew personal loans and never launched a credit card; /loans redirects to the homepage. <b>Zopa</b> removed at your request. <b>Revolut</b> shown un-scored in both tables: full UK banking licence granted 11 Mar 2026, five credit cards plus unsecured personal loans publicly announced but no UK acquisition pages live yet — re-score at launch.</div>
+  </div>
+
+  <!-- PATH TO #1 -->
+  <div class="panel">
+    <h2>Path to #1: gap-to-best-in-class action plan</h2>
+    <p class="small" style="margin-bottom:14px">NatWest leads credit cards but trails Santander by 1 point on loans. Each card shows the pillar leader, NatWest's gap, and the activities (with owning team) to close it.</p>
+    <div class="pillars">
+
+      <div class="pillar">
+        <h3>Loans: Organic SoV — gap −20 <span class="badge directional">directional</span></h3>
+        <div class="lead">Leader: <b>Santander (65)</b> · NatWest 45</div>
+        <p>Santander's loans page was the only bank page ranking directly in sampled "best personal loan rates UK" results. Everything else routes through aggregators (MSE, MoneySuperMarket, Which?, CompareTheMarket). This is the single biggest gap keeping NatWest at #2 on loans.</p>
+        <div class="actions">
+          <div><span class="own">SEO + Content</span><br>Build "best/compare"-intent loan content (rates tables, "loans for X" hubs) that can rank against aggregator listicles; target featured snippets.</div>
+          <div><span class="own">Partnerships / Media</span><br>Audit aggregator placement and feed accuracy on MSE/MSM — most loan demand routes through them.</div>
+          <div><span class="own">SEO Ops</span><br>Commission proper SoV tracking (Semrush/Sistrix, ~200-term acquisition basket) to replace this directional sample.</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <h3>Loans: Experience — gap −7</h3>
+        <div class="lead">Leader: <b>Santander (85)</b> · NatWest 78</div>
+        <p>Santander publishes a full server-rendered rate table by amount band, per-product eligibility checkers and a step-by-step application timeline ("decision within 5 minutes"). TSB (84) is open to non-customers with a 2-minute quote and same-day money. NatWest's QuickQuote is competitive but under-promoted and the hub lacks an inline rate table.</p>
+        <div class="actions">
+          <div><span class="own">Digital Product / CX</span><br>Add an inline rate-by-amount table and application timeline to the loans hub; promote QuickQuote above the fold.</div>
+          <div><span class="own">Analytics</span><br>Benchmark quote-to-application conversion vs TSB's "2-minute quote, same-day money" proposition.</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <h3>Cards: Experience — gap −6</h3>
+        <div class="lead">Leader: <b>HSBC (86)</b> · NatWest 80</div>
+        <p>HSBC answers on-page: inline FAQ accordions, an eligibility checker that estimates your credit limit, and per-card rep examples. NatWest links out to FAQs rather than answering on the hub.</p>
+        <div class="actions">
+          <div><span class="own">Digital Product / CX</span><br>Add inline FAQ accordions and a comparison/filter module to the credit-cards hub (HSBC/Barclaycard pattern).</div>
+          <div><span class="own">Digital Product</span><br>Match HSBC's "estimated credit limit" output in the eligibility checker.</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <h3>SEO foundations — gap −6 (both products)</h3>
+        <div class="lead">Leader: <b>Lloyds (88)</b> · NatWest 82/80</div>
+        <p>NatWest titles/descriptions are strong, but canonicals are relative URLs, and social-card coverage is thinner than Lloyds, which also runs structured FAQ entities (Yext).</p>
+        <div class="actions">
+          <div><span class="own">SEO / Web Platform</span><br>Fix relative canonicals; complete OpenGraph + Twitter cards; add FAQPage + Product structured data to hub and product pages.</div>
+          <div><span class="own">SEO</span><br>Add Lighthouse/CWV audits per template — page speed was out of scope for this snapshot.</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <h3>AI readiness &amp; LLM visibility — NatWest leads</h3>
+        <div class="lead">NatWest 88 / 85 · nearest: <b>Santander 78 / 75–78</b></div>
+        <p>Only brand with llms.txt; products cited inside AI-generated answers (Longer Balance Transfer card). Contrast: Barclays' loan rates render as "0 APR … £0" and Nationwide's as "Loading…" without JavaScript — invisible to AI crawlers.</p>
+        <div class="actions">
+          <div><span class="own">SEO / AI Search</span><br>Protect the lead: add explicit AI-crawler allows in robots.txt (Santander pattern: GPTBot, ClaudeBot, PerplexityBot, CCBot).</div>
+          <div><span class="own">Content Ops</span><br>Keep llms.txt on a release cadence; extend to rates and eligibility pages.</div>
+          <div><span class="own">Insights</span><br>Stand up LLM answer tracking (Profound/Otterly or monthly prompt panels across ChatGPT, Claude, Gemini, AI Overviews) to monitor citation share.</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <h3>Site health — joint leader (85)</h3>
+        <div class="lead">Tied with <b>Santander (85)</b></div>
+        <p>Clean robots.txt with sitemaps declared. Santander's robots is the most actively managed in the set (parameter hygiene, crawler tiers, SEO-tool blocking) — worth mirroring. Barclays' robots.txt returns empty; Nationwide timed out once during testing.</p>
+        <div class="actions">
+          <div><span class="own">SEO Ops</span><br>Add parameter-handling rules and quarterly log-file analysis; monitor competitor robots/llms policies quarterly.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="panel">
+    <h2>Methodology &amp; weights</h2>
+    <div class="tbl-scroll">
+    <table class="meth">
+      <tbody><tr><td>SEO foundations · 20%</td><td>Measured from live page source: title/meta quality, canonicals, OpenGraph/Twitter cards, indexability directives, sitemap declaration.</td></tr>
+      <tr><td>Organic SoV · 15%</td><td><b>Directional.</b> Sampled live search results for high-intent queries (best credit cards, balance transfer, best loan rates). Direct rankings score highest; citations within answer content score mid. Harden with a Semrush/Sistrix keyword basket.</td></tr>
+      <tr><td>AI readiness · 15%</td><td>Measured: llms.txt presence, robots.txt AI-crawler policy, server-side rendering of rates/rep-examples, inline FAQ extractability.</td></tr>
+      <tr><td>LLM visibility · 15%</td><td><b>Directional.</b> Observed citations of brand products inside AI-generated answer summaries, combined with measured access/extractability signals. Harden with LLM answer-tracking tooling.</td></tr>
+      <tr><td>Site health · 10%</td><td>Measured: robots.txt quality, sitemap coverage, redirect/canonical cleanliness, response reliability. Core Web Vitals out of scope (needs Lighthouse/CrUX).</td></tr>
+      <tr><td>Experience · 25%</td><td>Measured from page content: eligibility checkers (soft-search), calculators, rate transparency, FAQ depth, application friction (incl. account-gating), product range, supporting guides.</td></tr>
+    </tbody></table>
+    </div>
+    <p class="footnote"><b>Limitations:</b> point-in-time snapshot (10 Jun 2026) of public hub pages; logged-in journeys, mobile apps, Core Web Vitals, backlink authority and JSON-LD validation were not measurable with this method — add via Lighthouse/CrUX, Semrush/Ahrefs and schema validation before final investment sizing. SoV and LLM-visibility pillars are directional samples and weighted accordingly. Revolut should be re-benchmarked the week its UK credit cards and loans go live.</p>
+  </div>
+
+</div>
+
+<script>
+const W={seo:.20,sov:.15,ai:.15,llm:.15,health:.10,xp:.25};
+
+const ccBanks=[
+ {name:"NatWest",dom:"natwest.com/credit-cards",nw:true,seo:82,sov:50,ai:88,llm:85,health:85,xp:80,
+  str:["Only brand with llms.txt — curated LLM index listing every card page, referenced from robots.txt","Longer Balance Transfer card cited inside AI-generated answer summaries in SERP sampling","Rep-examples and APRs for all 8 cards fully server-rendered — extractable by AI crawlers","Per-card eligibility checkers and a repayment calculator","Clean robots.txt with 3 sitemaps"],
+  wk:["Relative canonical URLs (should be absolute)","FAQs linked off-page rather than inline on the hub — weaker for snippets and AI answers","No direct organic rankings observed for 'best/compare card' queries","No explicit AI-crawler allow rules (relies on default)"]},
+ {name:"Santander",dom:"santander.co.uk/personal/credit-cards",seo:72,sov:45,ai:78,llm:70,health:85,xp:85,
+  str:["Explicit AI-crawler allows in robots.txt: GPTBot, ClaudeBot, PerplexityBot, CCBot, Google-Extended","Inline balance-transfer savings calculator and per-card eligibility checkers","All 5 card rep-examples server-rendered; card filter by need (day-to-day / BT / travel)","Most actively managed robots.txt in the set"],
+  wk:["No OpenGraph/Twitter cards; legacy meta-keywords tag","No llms.txt","No card-specific organic rankings observed in sample"]},
+ {name:"HSBC",dom:"hsbc.co.uk/credit-cards",seo:85,sov:40,ai:62,llm:60,health:80,xp:86,
+  str:["Richest card hub experience: 8 inline FAQ accordions plus 'Explore more' guide modules","Eligibility checker shows estimated credit limit with no credit-score impact","Full OG + Twitter cards, clean canonicals","Rep-examples for 4 popular cards server-rendered"],
+  wk:["No llms.txt, no explicit AI-crawler policy","Blanket robots Disallow on all PDFs hides key-facts documents","No direct organic rankings observed in sample"]},
+ {name:"Lloyds",dom:"lloydsbank.com/credit-cards",seo:88,sov:40,ai:65,llm:58,health:78,xp:82,
+  str:["Best metadata in the set: full OG + Twitter cards, meta-robots, absolute canonicals, Yext FAQ entities","Open eligibility checker and credit-card interest calculator","Broad range incl. Ultra and World Elite cards with guides hub"],
+  wk:["No llms.txt, silent AI-crawler policy","Minimal robots.txt with little crawl management","Card rep-examples on deeper pages, not the hub"]},
+ {name:"TSB",dom:"tsb.co.uk/credit-cards",seo:80,sov:35,ai:68,llm:62,health:78,xp:82,
+  str:["All 3 card rep-examples plus market-leading 38-month BT offer server-rendered","Very deep inline FAQ section (15+ questions incl. worked interest examples)","Open eligibility checker; clean open robots.txt"],
+  wk:["No llms.txt, no AI-crawler policy","Weakest brand visibility in SERP sampling","Only 3 cards — narrowest mainstream range"]},
+ {name:"Barclays / Barclaycard",dom:"barclays.co.uk/credit-cards",seo:55,sov:55,ai:50,llm:55,health:50,xp:75,
+  str:["Widest range in the set: 9 cards incl. Amazon and Avios partnerships, rep-examples server-rendered","Barclaycard cited in AI-generated answers for balance-transfer queries","Eligibility checker with no credit-score impact; jargon-buster content"],
+  wk:["robots.txt returns empty — no sitemap declared, no crawl directives","No title/meta extractable from raw page fetch — serious SEO/AI extractability problem","Split estate (barclays.co.uk vs barclaycard.co.uk) dilutes authority"]},
+ {name:"Monzo",dom:"monzo.com/flex",seo:86,sov:30,ai:70,llm:60,health:82,xp:72,
+  str:["Excellent metadata and social cards; SSR Next.js with APRs visible","Transparent Flex Purchase vs Flex Build comparison table with rates","Trust signals on-page: 4.9 App Store, awards, FSCS"],
+  wk:["Must open a Monzo current account before applying — gated acquisition","Only 2 credit products, max £10k limit","No llms.txt; no organic presence for category terms in sample"]},
+ {name:"Nationwide",dom:"nationwide.co.uk/credit-cards",seo:70,sov:25,ai:62,llm:45,health:72,xp:62,
+  str:["Card rates and intro offers server-rendered (24.9% APR rep)","Clear plain-English education content on fees and responsible use"],
+  wk:["Members only — must hold a Nationwide account to apply","Only 2 cards — narrowest range in the set","No OG/Twitter cards; page fetch timed out once during testing","No llms.txt; weakest SERP presence observed"]}
+];
+
+const loanBanks=[
+ {name:"Santander",dom:"santander.co.uk/personal/loans",seo:72,sov:65,ai:78,llm:78,health:85,xp:85,
+  str:["Only bank page ranking directly in sampled 'best personal loan rates UK' results","Full rate table by amount band (6.1% from £7.5k) server-rendered","Eligibility checker + decision within 5 minutes; step-by-step application timeline","Explicit AI-crawler allows in robots.txt"],
+  wk:["No OG/Twitter cards; some calculator values are JS placeholders","No llms.txt","Loans capped at £25k (vs £50k at NatWest/Lloyds/Nationwide)"]},
+ {name:"NatWest",dom:"natwest.com/loans",nw:true,seo:80,sov:45,ai:88,llm:80,health:85,xp:78,
+  str:["llms.txt covers the full loans estate: calculator, QuickQuote, rates, guides","QuickQuote soft-search loan quote open to non-customers","Rates and rep-examples server-rendered; loan calculator and how-to-apply guides","Clean robots.txt with sitemaps"],
+  wk:["No direct organic rankings observed — aggregator-dependent for loan demand","No inline rate-by-amount table on the hub (Santander pattern)","FAQs linked off-page rather than answered inline","Relative canonicals"]},
+ {name:"HSBC",dom:"hsbc.co.uk/loans",seo:85,sov:40,ai:62,llm:58,health:80,xp:83,
+  str:["Competitive headline rate server-rendered (6.2% rep £7.5k–£20k)","8 inline FAQs plus guide modules on the hub","Loan calculator with personalised rates, no credit-score impact"],
+  wk:["No llms.txt, no AI-crawler policy","PDF disallow hides key-facts docs","Loans capped at £30k (£50k Premier only)"]},
+ {name:"TSB",dom:"tsb.co.uk/personal-loans",seo:78,sov:35,ai:68,llm:62,health:78,xp:84,
+  str:["Open to new customers: 2-minute quote, same-day money, 5.9% rep rate server-rendered","Loans from £300 (current-account customers) to £50k — widest amount range","Deep inline FAQs incl. eligibility, early repayment, fraud warnings"],
+  wk:["Loans canonical alias (/loans.html → /personal-loans.html)","No llms.txt, no AI-crawler policy","Weakest SERP visibility in sample"]},
+ {name:"Lloyds",dom:"lloydsbank.com/loans",seo:88,sov:40,ai:65,llm:58,health:78,xp:74,
+  str:["Best metadata in the set; rich server-rendered content: rep example, FAQs, eligibility criteria","Loan calculator plus personalised quote with no credit-score impact","Borrow up to £50k over up to 7 years"],
+  wk:["Quote gated behind login and requires a Lloyds current account held ≥1 month — real friction for new-to-bank acquisition","No llms.txt, silent AI policy","Minimal robots.txt"]},
+ {name:"Monzo",dom:"monzo.com/loans",seo:86,sov:30,ai:70,llm:58,health:82,xp:74,
+  str:["Strong metadata; rep example server-rendered and dated (21.8% APR ≤£10k, 10.2% £10k–£35k)","Money in minutes if approved; no fees for early/extra payments","Personal loan calculator and named-loan UX"],
+  wk:["Monzo current account required to apply — gated acquisition","Higher rep APR than banks for smaller loans; capped at £35k","No llms.txt; no organic presence in sample"]},
+ {name:"Nationwide",dom:"nationwide.co.uk/loans",seo:70,sov:25,ai:48,llm:40,health:72,xp:66,
+  str:["Acceptance indicator before any credit check","Good inline FAQs; loans up to £50k and terms to 10 years","No fees; unlimited overpayments"],
+  wk:["Loan rates and calculator render as 'Loading…' without JavaScript — invisible to AI crawlers and weak for SEO","Members only — needs a Nationwide account to apply","No OG/Twitter cards; one fetch timeout during testing"]},
+ {name:"Barclays",dom:"barclays.co.uk/loans",seo:55,sov:45,ai:38,llm:45,health:50,xp:62,
+  str:["Personal price quote with no credit footprint; most applications under 10 minutes","Greener Home cashback proposition (6.5% rep rate in body copy)","Money Mentors guidance content"],
+  wk:["Headline rate renders as '0 APR Representative on loans of £0' without JavaScript — key rates invisible to crawlers and AI","robots.txt returns empty — no sitemap, no crawl directives","No title/meta extractable from raw fetch"]}
+];
+
+const revolut={name:"Revolut",dom:"revolut.com — UK launch pending",pending:true,
+  note:"Full UK banking licence granted 11 Mar 2026. Five credit cards and unsecured personal loans publicly announced as a key 2026 focus (13M UK customers waiting). No UK acquisition pages live yet — fetches return empty client-rendered shells. Re-benchmark at launch.",
+  str:["13M UK customers and a top-rated app give it instant distribution once products launch","Record £1.7bn profit funding an aggressive lending push"],
+  wk:["No UK credit-card or loan acquisition pages live at snapshot date","Site is heavily client-rendered — current pages expose no extractable metadata, which would score poorly on AI readiness if unchanged"]};
+
+[...ccBanks,...loanBanks].forEach(b=>{b.overall=Math.round(W.seo*b.seo+W.sov*b.sov+W.ai*b.ai+W.llm*b.llm+W.health*b.health+W.xp*b.xp);});
+ccBanks.sort((a,b)=>b.overall-a.overall);
+loanBanks.sort((a,b)=>b.overall-a.overall);
+
+function color(v){return v>=70?"var(--good)":v>=50?"var(--mid)":"var(--bad)";}
+function cell(v,cls){return `<td class="scorecell ${cls||''}"><span class="num">${v}</span><div class="bar"><i style="width:${v}%;background:${color(v)}"></i></div></td>`;}
+
+function buildTable(el,banks){
+  const leader=Math.max(...banks.map(b=>b.overall));
+  let state={k:"overall",asc:false};
+  function render(){
+    let rows=[...banks];
+    if(state.k==="name"){rows.sort((a,b)=>state.asc?a.name.localeCompare(b.name):b.name.localeCompare(a.name));}
+    else{rows.sort((a,b)=>state.asc?a[state.k]-b[state.k]:b[state.k]-a[state.k]);}
+    el.innerHTML=`<thead><tr>
+      <th>#</th><th data-k="name">Brand</th>
+      <th data-k="overall">Overall ${state.k==='overall'?`<span class="arrow">${state.asc?'▲':'▼'}</span>`:''}</th>
+      <th data-k="seo">SEO <span class="badge measured">m</span></th>
+      <th data-k="sov">Organic SoV <span class="badge directional">d</span></th>
+      <th data-k="ai">AI readiness <span class="badge measured">m</span></th>
+      <th data-k="llm">LLM visibility <span class="badge directional">d</span></th>
+      <th data-k="health">Site health <span class="badge measured">m</span></th>
+      <th data-k="xp">Experience <span class="badge measured">m</span></th>
+      <th>Gap to #1</th></tr></thead>`;
+    const tb=document.createElement("tbody");
+    rows.forEach(b=>{
+      const overallRank=banks.indexOf(b)+1;
+      const gap=leader-b.overall;
+      const tr=document.createElement("tr");
+      tr.className="bank-row"+(b.nw?" natwest":"");
+      tr.innerHTML=`<td class="rank">${overallRank}</td>
+        <td class="bname">${b.name}<small>${b.dom}</small></td>
+        ${cell(b.overall,"overall")}${cell(b.seo)}${cell(b.sov)}${cell(b.ai)}${cell(b.llm)}${cell(b.health)}${cell(b.xp)}
+        <td class="gap ${gap===0?'leader':''}">${gap===0?"Leader":"−"+gap}</td>`;
+      const dr=document.createElement("tr"); dr.className="detail";
+      dr.innerHTML=`<td colspan="10"><div class="detail-grid">
+        <div><h4 class="s">Strengths (evidence)</h4><ul class="str">${b.str.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+        <div><h4 class="w">Weaknesses (evidence)</h4><ul class="wk">${b.wk.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+      </div></td>`;
+      tr.addEventListener("click",()=>dr.classList.toggle("open"));
+      tb.appendChild(tr); tb.appendChild(dr);
+    });
+    // Revolut pending row
+    const pr=document.createElement("tr"); pr.className="bank-row pendingrow";
+    pr.innerHTML=`<td class="rank">—</td>
+      <td class="bname">${revolut.name} <span class="badge pending">Launching 2026</span><small>${revolut.dom}</small></td>
+      <td class="na" colspan="7">Not yet scoreable — ${revolut.note}</td><td class="na">n/a</td>`;
+    const pd=document.createElement("tr"); pd.className="detail";
+    pd.innerHTML=`<td colspan="10"><div class="detail-grid">
+      <div><h4 class="s">Why it matters</h4><ul class="str">${revolut.str.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+      <div><h4 class="w">Current state</h4><ul class="wk">${revolut.wk.map(s=>`<li>${s}</li>`).join("")}</ul></div>
+    </div></td>`;
+    pr.addEventListener("click",()=>pd.classList.toggle("open"));
+    tb.appendChild(pr); tb.appendChild(pd);
+    el.appendChild(tb);
+    el.querySelectorAll("th[data-k]").forEach(th=>{
+      th.addEventListener("click",()=>{
+        const k=th.dataset.k;
+        if(state.k===k){state.asc=!state.asc;}else{state.k=k;state.asc=false;}
+        render();
+      });
+    });
+  }
+  render();
+}
+buildTable(document.getElementById("cc-table"),ccBanks);
+buildTable(document.getElementById("loan-table"),loanBanks);
+</script>
+
+
+</body></html>
